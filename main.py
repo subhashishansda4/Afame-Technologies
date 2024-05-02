@@ -26,29 +26,52 @@ dfd = df.drop(columns=['RowNumber', 'Surname', 'Geography', 'Gender'])
 # merge
 df_ = pd.concat([dfd, onehot_gen, onehot_geo], axis=1)
 
-# numerical feature distributions
-df_.hist(figsize=(15,15))
-plt.subplots_adjust(bottom=0.1)
-plt.title('Numerical Feature Distributions')
-plt.show()
 
-# scatter plots b/n numerical features & exited
-numerical_cls = df_.select_dtypes(include=[np.number])
+# numerical feature distributions
+sns.set(style='whitegrid')
+
+# hist plots b/n numerical features & exited
+numerical_cls = df_[['CreditScore', 'Age', 'Tenure', 'Balance', 'EstimatedSalary']]
+plt.figure()
+hist = sns.FacetGrid(df_, col='Exited', height=4, aspect=1)
 for c in numerical_cls.columns:
-    if c != 'CustomerId':
-        sns.scatterplot(x=df_['Exited'], y=df_[c])
-        plt.xlabel(c)
-        plt.ylabel('Exited')
-        plt.title(c + ' vs ' + 'Exited')
-        plt.show()
+    hist.map(sns.histplot, c)
+plt.tight_layout()
+plt.savefig('plots/' + c)
+plt.show()
         
-# box plots b/n categorical features & exited
-categorical_cls = df[['Gender', 'Geography']]
+# count plots b/n categorical features & exited
+categorical_cls = df[['Gender', 'Geography', 'NumOfProducts', 'HasCrCard', 'IsActiveMember']]
 for c in categorical_cls.columns:
-    sns.boxplot(x=df['Exited'], y=c, data=df)
+    plt.figure()
+    ax = sns.countplot(x=df['Exited'], hue=c, data=df, palette='Pastel1')
     plt.xlabel('Exited')
     plt.ylabel(c)
-    plt.title('Exited' + ' vs ' + c)
+    for p in ax.patches:
+        height = p.get_height()
+        if height != 0:
+            ax.annotate(f'{int(height)}', (p.get_x() + p.get_width()/2., height), ha='center', va='bottom')
+    plt.tight_layout()
+    plt.savefig('plots/' + c)
     plt.show()
 
+# hist plots b/n numerical and categorical variables
 
+# Create a grid of subplots
+fig, axes = plt.subplots(nrows=1, ncols=len(numerical_cls), figsize=(15, 5))
+
+# Create scatter plots for each numerical feature
+for i, feature in enumerate(numerical_cls):
+    # Create scatter plot
+    sns.scatterplot(x=feature, y='Exited', data=df_, ax=axes[i])
+    
+    # Add labels and title
+    axes[i].set_xlabel(feature)
+    axes[i].set_ylabel('Exited')
+    axes[i].set_title(f'Scatter Plot between {feature} and Exited')
+
+# Adjust layout
+plt.tight_layout()
+
+# Show plot
+plt.show()
