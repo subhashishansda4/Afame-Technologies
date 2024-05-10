@@ -27,51 +27,142 @@ dfd = df.drop(columns=['RowNumber', 'Surname', 'Geography', 'Gender'])
 df_ = pd.concat([dfd, onehot_gen, onehot_geo], axis=1)
 
 
-# numerical feature distributions
-sns.set(style='whitegrid')
 
-# hist plots b/n numerical features & exited
+
+
+sns.set(style='whitegrid')
 numerical_cls = df_[['CreditScore', 'Age', 'Tenure', 'Balance', 'EstimatedSalary']]
-plt.figure()
-hist = sns.FacetGrid(df_, col='Exited', height=4, aspect=1)
-for c in numerical_cls.columns:
-    hist.map(sns.histplot, c)
-plt.tight_layout()
-plt.savefig('plots/' + c)
-plt.show()
-        
-# count plots b/n categorical features & exited
 categorical_cls = df[['Gender', 'Geography', 'NumOfProducts', 'HasCrCard', 'IsActiveMember']]
-for c in categorical_cls.columns:
-    plt.figure()
-    ax = sns.countplot(x=df['Exited'], hue=c, data=df, palette='Pastel1')
-    plt.xlabel('Exited')
-    plt.ylabel(c)
-    for p in ax.patches:
+
+r = 3
+c = 2
+
+# numerical feature distributions
+# hist plots for Exited
+fig, axes = plt.subplots(r, c, figsize=(20, 12))
+for i, (col, ax) in enumerate(zip(numerical_cls.columns, axes.flat)):
+    hist = sns.histplot(data=df, x=col, hue='Exited', ax=ax, multiple='stack', palette='Pastel1')
+plt.tight_layout()
+plt.savefig('plots/Exited-numerical.png', dpi=300)
+plt.show()
+
+# hist plots for Gender
+fig, axes = plt.subplots(r, c, figsize=(20, 12))
+for i, (col, ax) in enumerate(zip(numerical_cls.columns, axes.flat)):
+    hist = sns.histplot(data=df, x=col, hue='Gender', ax=ax, multiple='stack', palette='Pastel1')
+plt.tight_layout()
+plt.savefig('plots/Gender-numerical.png', dpi=300)
+plt.show()
+
+# hist plots for Geography
+fig, axes = plt.subplots(r, c, figsize=(20, 12))
+for i, (col, ax) in enumerate(zip(numerical_cls.columns, axes.flat)):
+    hist = sns.histplot(data=df, x=col, hue='Geography', ax=ax, multiple='stack', palette='Pastel1')
+plt.tight_layout()
+plt.savefig('plots/Geography-numerical.png', dpi=300)
+plt.show()
+
+# hist plots for NumOfProducts
+fig, axes = plt.subplots(r, c, figsize=(20, 12))
+for i, (col, ax) in enumerate(zip(numerical_cls.columns, axes.flat)):
+    hist = sns.histplot(data=df, x=col, hue='NumOfProducts', ax=ax, multiple='stack', palette='Pastel1')
+plt.tight_layout()
+plt.savefig('plots/NumOfProducts-numerical.png', dpi=300)
+plt.show()
+
+# hist plots for HasCrCard
+fig, axes = plt.subplots(r, c, figsize=(20, 12))
+for i, (col, ax) in enumerate(zip(numerical_cls.columns, axes.flat)):
+    hist = sns.histplot(data=df, x=col, hue='HasCrCard', ax=ax, multiple='stack', palette='Pastel1')
+plt.tight_layout()
+plt.savefig('plots/HasCrCard-numerical.png', dpi=300)
+plt.show()
+
+# hist plots for IsActiveMember
+fig, axes = plt.subplots(r, c, figsize=(20, 12))
+for i, (col, ax) in enumerate(zip(numerical_cls.columns, axes.flat)):
+    hist = sns.histplot(data=df, x=col, hue='IsActiveMember', ax=ax, multiple='stack', palette='Pastel1')
+plt.tight_layout()
+plt.savefig('plots/IsActiveMember-numerical.png', dpi=300)
+plt.show()
+
+
+
+
+
+# categorical variable distributions
+# count plots for Exited
+fig, axes = plt.subplots(r, c, figsize=(20, 16))
+for i, (col, ax) in enumerate(zip(categorical_cls.columns, axes.flat)):
+    count = sns.countplot(data=df, x=df['Exited'], hue=col, ax=ax, palette='Pastel2')
+    for p in count.patches:
         height = p.get_height()
         if height != 0:
-            ax.annotate(f'{int(height)}', (p.get_x() + p.get_width()/2., height), ha='center', va='bottom')
-    plt.tight_layout()
-    plt.savefig('plots/' + c)
-    plt.show()
-
-# hist plots b/n numerical and categorical variables
-
-# Create a grid of subplots
-fig, axes = plt.subplots(nrows=1, ncols=len(numerical_cls), figsize=(15, 5))
-
-# Create scatter plots for each numerical feature
-for i, feature in enumerate(numerical_cls):
-    # Create scatter plot
-    sns.scatterplot(x=feature, y='Exited', data=df_, ax=axes[i])
-    
-    # Add labels and title
-    axes[i].set_xlabel(feature)
-    axes[i].set_ylabel('Exited')
-    axes[i].set_title(f'Scatter Plot between {feature} and Exited')
-
-# Adjust layout
+            count.annotate(f'{int(height)}', (p.get_x() + p.get_width()/2., height), ha='center', va='bottom')
 plt.tight_layout()
-
-# Show plot
+plt.savefig('plots/Exited-categorical.png', dpi=300)
 plt.show()
+
+# count plots for Gender
+fig, axes = plt.subplots(r, c, figsize=(20, 16))
+for i, (col, ax) in enumerate(zip(categorical_cls.columns, axes.flat)):
+    count = sns.countplot(data=df, x=df['Gender'], hue=col, ax=ax, palette='Pastel2')
+    for p in count.patches:
+        height = p.get_height()
+        if height != 0:
+            count.annotate(f'{int(height)}', (p.get_x() + p.get_width()/2., height), ha='center', va='bottom')
+plt.tight_layout()
+plt.savefig('plots/Gender-categorical.png', dpi=300)
+plt.show()
+
+# count plots for Geography
+fig, axes = plt.subplots(r, c, figsize=(20, 16))
+for i, (col, ax) in enumerate(zip(categorical_cls.columns, axes.flat)):
+    count = sns.countplot(data=df, x=df['Geography'], hue=col, ax=ax, palette='Pastel2')
+    for p in count.patches:
+        height = p.get_height()
+        if height != 0:
+            count.annotate(f'{int(height)}', (p.get_x() + p.get_width()/2., height), ha='center', va='bottom')
+plt.tight_layout()
+plt.savefig('plots/Geography-categorical.png', dpi=300)
+plt.show()
+
+# count plots for NumOfProducts
+fig, axes = plt.subplots(r, c, figsize=(20, 16))
+for i, (col, ax) in enumerate(zip(categorical_cls.columns, axes.flat)):
+    count = sns.countplot(data=df, x=df['NumOfProducts'], hue=col, ax=ax, palette='Pastel2')
+    for p in count.patches:
+        height = p.get_height()
+        if height != 0:
+            count.annotate(f'{int(height)}', (p.get_x() + p.get_width()/2., height), ha='center', va='bottom')
+plt.tight_layout()
+plt.savefig('plots/NumOfProducts-categorical.png', dpi=300)
+plt.show()
+
+# count plots for HasCrCard
+fig, axes = plt.subplots(r, c, figsize=(20, 16))
+for i, (col, ax) in enumerate(zip(categorical_cls.columns, axes.flat)):
+    count = sns.countplot(data=df, x=df['HasCrCard'], hue=col, ax=ax, palette='Pastel2')
+    for p in count.patches:
+        height = p.get_height()
+        if height != 0:
+            count.annotate(f'{int(height)}', (p.get_x() + p.get_width()/2., height), ha='center', va='bottom')
+plt.tight_layout()
+plt.savefig('plots/HasCrCard-categorical.png', dpi=300)
+plt.show()
+
+# count plots for IsActiveMember
+fig, axes = plt.subplots(r, c, figsize=(20, 16))
+for i, (col, ax) in enumerate(zip(categorical_cls.columns, axes.flat)):
+    count = sns.countplot(data=df, x=df['IsActiveMember'], hue=col, ax=ax, palette='Pastel2')
+    for p in count.patches:
+        height = p.get_height()
+        if height != 0:
+            count.annotate(f'{int(height)}', (p.get_x() + p.get_width()/2., height), ha='center', va='bottom')
+plt.tight_layout()
+plt.savefig('plots/IsActiveMember-categorical.png', dpi=300)
+plt.show()
+
+
+
+
