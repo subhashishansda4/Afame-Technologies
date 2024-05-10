@@ -29,7 +29,7 @@ df_ = pd.concat([dfd, onehot_gen, onehot_geo], axis=1)
 
 
 
-
+# Exploratory Data Analysis
 sns.set(style='whitegrid')
 numerical_cls = df_[['CreditScore', 'Age', 'Tenure', 'Balance', 'EstimatedSalary']]
 categorical_cls = df[['Gender', 'Geography', 'NumOfProducts', 'HasCrCard', 'IsActiveMember']]
@@ -85,7 +85,6 @@ for i, (col, ax) in enumerate(zip(numerical_cls.columns, axes.flat)):
 plt.tight_layout()
 plt.savefig('plots/IsActiveMember-numerical.png', dpi=300)
 plt.show()
-
 
 
 
@@ -163,6 +162,34 @@ plt.tight_layout()
 plt.savefig('plots/IsActiveMember-categorical.png', dpi=300)
 plt.show()
 
+
+
+
+
+
+
+# Feature Engineering
+# product relations
+df_['CustomerValue'] = df_.apply(lambda row: row['Tenure'] * row['NumOfProducts'], axis=1)
+df_['PurchaseValue'] = df_.apply(lambda row: row['CreditScore'] * row['NumOfProducts'], axis=1)
+
+# ratio relations
+df_['Worth'] = df_.apply(lambda row: row['Balance'] / row['Age'] if row['Age'] != 0 else row['Balance'], axis=1)
+df_['Affordance'] = df_.apply(lambda row: row['CreditScore'] / row['Tenure'] if row['Tenure'] != 0 else row['CreditScore'], axis=1)
+
+# additive relations
+df_['TotalBalance'] = df_.apply(lambda row: row['Balance'] + row['EstimatedSalary'], axis=1)
+
+# negative relations
+df_['Balance_'] = df_.apply(lambda row: abs(row['Balance'] - row['EstimatedSalary']), axis=1)
+
+
+
+
+# Normalization
+normalize_cls = df_[['CreditScore', 'Age', 'Balance', 'Tenure', 'NumOfProducts', 'EstimatedSalary', 'CustomerValue', 'PurchaseValue', 'Worth', 'Affordance', 'TotalBalance', 'Balance_']]
+for c in normalize_cls.columns:
+    df_[c] = (df_[c] - df_[c].min()) / (df_[c].max() - df_[c].min())
 
 
 
