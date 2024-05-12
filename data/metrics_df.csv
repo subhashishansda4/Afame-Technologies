@@ -1,0 +1,19 @@
+,Model,Score,Accuracy
+0,LogisticRegression(),-0.44364535143638295,0.7964285714285714
+1,DecisionTreeClassifier(),-8.431640346382762,0.7642857142857142
+2,RandomForestClassifier(),-0.4188361738633231,0.8526785714285714
+3,LinearDiscriminantAnalysis(),-0.4509635909657113,0.7919642857142857
+4,KNeighborsClassifier(),-2.2154709504251353,0.7848214285714286
+5,SVC(probability=True),-0.41206220236339464,0.8178571428571428
+6,GaussianNB(),-0.4838409850010026,0.79375
+7,"XGBClassifier(base_score=None, booster=None, callbacks=None,
+              colsample_bylevel=None, colsample_bynode=None,
+              colsample_bytree=None, device=None, early_stopping_rounds=None,
+              enable_categorical=False, eval_metric=None, feature_types=None,
+              gamma=None, grow_policy=None, importance_type=None,
+              interaction_constraints=None, learning_rate=None, max_bin=None,
+              max_cat_threshold=None, max_cat_to_onehot=None,
+              max_delta_step=None, max_depth=None, max_leaves=None,
+              min_child_weight=None, missing=nan, monotone_constraints=None,
+              multi_strategy=None, n_estimators=None, n_jobs=None,
+              num_parallel_tree=None, random_state=None, ...)",-0.4210865413937793,0.8428571428571429
