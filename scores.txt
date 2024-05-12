@@ -1,0 +1,410 @@
+
+
+
+=====================================
+
+LogisticRegression()
+score: -0.42
+accuracy: 0.82 +/- 0.00
+
+confusion matrix
+[[868  31]
+ [173  48]]
+
+--------
+
+score: -0.44
+accuracy: 0.80 +/- 0.00
+
+confusion matrix
+[[852  30]
+ [198  40]]
+
+--------
+
+score: -0.44
+accuracy: 0.81 +/- 0.00
+
+confusion matrix
+[[868  31]
+ [184  37]]
+
+--------
+
+score: -0.42
+accuracy: 0.82 +/- 0.00
+
+confusion matrix
+[[866  25]
+ [177  52]]
+
+--------
+
+score: -0.44
+accuracy: 0.81 +/- 0.00
+
+confusion matrix
+[[862  24]
+ [190  44]]
+
+--------
+
+
+
+=====================================
+
+DecisionTreeClassifier()
+score: -8.43
+accuracy: 0.76 +/- 0.00
+
+confusion matrix
+[[744 155]
+ [109 112]]
+
+--------
+
+score: -7.05
+accuracy: 0.80 +/- 0.00
+
+confusion matrix
+[[772 110]
+ [119 119]]
+
+--------
+
+score: -6.95
+accuracy: 0.80 +/- 0.00
+
+confusion matrix
+[[796 103]
+ [116 105]]
+
+--------
+
+score: -7.85
+accuracy: 0.77 +/- 0.00
+
+confusion matrix
+[[757 134]
+ [119 110]]
+
+--------
+
+score: -7.95
+accuracy: 0.78 +/- 0.00
+
+confusion matrix
+[[759 127]
+ [115 119]]
+
+--------
+
+
+
+=====================================
+
+RandomForestClassifier()
+score: -0.36
+accuracy: 0.85 +/- 0.00
+
+confusion matrix
+[[854  45]
+ [120 101]]
+
+--------
+
+score: -0.39
+accuracy: 0.86 +/- 0.00
+
+confusion matrix
+[[859  23]
+ [132 106]]
+
+--------
+
+score: -0.42
+accuracy: 0.87 +/- 0.00
+
+confusion matrix
+[[876  23]
+ [120 101]]
+
+--------
+
+score: -0.41
+accuracy: 0.86 +/- 0.00
+
+confusion matrix
+[[859  32]
+ [124 105]]
+
+--------
+
+score: -0.35
+accuracy: 0.86 +/- 0.00
+
+confusion matrix
+[[860  26]
+ [127 107]]
+
+--------
+
+
+
+=====================================
+
+LinearDiscriminantAnalysis()
+score: -0.43
+accuracy: 0.81 +/- 0.00
+
+confusion matrix
+[[855  44]
+ [167  54]]
+
+--------
+
+score: -0.45
+accuracy: 0.79 +/- 0.00
+
+confusion matrix
+[[839  43]
+ [190  48]]
+
+--------
+
+score: -0.44
+accuracy: 0.81 +/- 0.00
+
+confusion matrix
+[[863  36]
+ [180  41]]
+
+--------
+
+score: -0.42
+accuracy: 0.82 +/- 0.00
+
+confusion matrix
+[[855  36]
+ [168  61]]
+
+--------
+
+score: -0.44
+accuracy: 0.80 +/- 0.00
+
+confusion matrix
+[[848  38]
+ [182  52]]
+
+--------
+
+
+
+=====================================
+
+KNeighborsClassifier()
+score: -1.82
+accuracy: 0.81 +/- 0.00
+
+confusion matrix
+[[834  65]
+ [153  68]]
+
+--------
+
+score: -2.15
+accuracy: 0.78 +/- 0.00
+
+confusion matrix
+[[826  56]
+ [185  53]]
+
+--------
+
+score: -2.17
+accuracy: 0.82 +/- 0.00
+
+confusion matrix
+[[861  38]
+ [166  55]]
+
+--------
+
+score: -1.88
+accuracy: 0.81 +/- 0.00
+
+confusion matrix
+[[841  50]
+ [164  65]]
+
+--------
+
+score: -2.22
+accuracy: 0.80 +/- 0.00
+
+confusion matrix
+[[839  47]
+ [179  55]]
+
+--------
+
+
+
+=====================================
+
+SVC(probability=True)
+score: -0.39
+accuracy: 0.83 +/- 0.00
+
+confusion matrix
+[[888  11]
+ [175  46]]
+
+--------
+
+score: -0.41
+accuracy: 0.82 +/- 0.00
+
+confusion matrix
+[[877   5]
+ [199  39]]
+
+--------
+
+score: -0.41
+accuracy: 0.83 +/- 0.00
+
+confusion matrix
+[[893   6]
+ [186  35]]
+
+--------
+
+score: -0.38
+accuracy: 0.83 +/- 0.00
+
+confusion matrix
+[[886   5]
+ [189  40]]
+
+--------
+
+score: -0.41
+accuracy: 0.82 +/- 0.00
+
+confusion matrix
+[[880   6]
+ [193  41]]
+
+--------
+
+
+
+=====================================
+
+GaussianNB()
+score: -0.43
+accuracy: 0.82 +/- 0.00
+
+confusion matrix
+[[815  84]
+ [115 106]]
+
+--------
+
+score: -0.48
+accuracy: 0.79 +/- 0.00
+
+confusion matrix
+[[788  94]
+ [137 101]]
+
+--------
+
+score: -0.43
+accuracy: 0.81 +/- 0.00
+
+confusion matrix
+[[820  79]
+ [137  84]]
+
+--------
+
+score: -0.46
+accuracy: 0.81 +/- 0.00
+
+confusion matrix
+[[806  85]
+ [128 101]]
+
+--------
+
+score: -0.45
+accuracy: 0.81 +/- 0.00
+
+confusion matrix
+[[817  69]
+ [144  90]]
+
+--------
+
+
+
+=====================================
+
+XGBClassifier(base_score=None, booster=None, callbacks=None,
+              colsample_bylevel=None, colsample_bynode=None,
+              colsample_bytree=None, device=None, early_stopping_rounds=None,
+              enable_categorical=False, eval_metric=None, feature_types=None,
+              gamma=None, grow_policy=None, importance_type=None,
+              interaction_constraints=None, learning_rate=None, max_bin=None,
+              max_cat_threshold=None, max_cat_to_onehot=None,
+              max_delta_step=None, max_depth=None, max_leaves=None,
+              min_child_weight=None, missing=nan, monotone_constraints=None,
+              multi_strategy=None, n_estimators=None, n_jobs=None,
+              num_parallel_tree=None, random_state=None, ...)
+score: -0.41
+accuracy: 0.85 +/- 0.00
+
+confusion matrix
+[[839  60]
+ [107 114]]
+
+--------
+
+score: -0.42
+accuracy: 0.84 +/- 0.00
+
+confusion matrix
+[[834  48]
+ [128 110]]
+
+--------
+
+score: -0.41
+accuracy: 0.85 +/- 0.00
+
+confusion matrix
+[[857  42]
+ [124  97]]
+
+--------
+
+score: -0.40
+accuracy: 0.85 +/- 0.00
+
+confusion matrix
+[[839  52]
+ [121 108]]
+
+--------
+
+score: -0.40
+accuracy: 0.85 +/- 0.00
+
+confusion matrix
+[[851  35]
+ [131 103]]
+
+--------
