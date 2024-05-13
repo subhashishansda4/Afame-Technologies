@@ -71,14 +71,14 @@ https://github.com/subhashishansda4/Afame-Technologies/blob/main/plots/t-SNE.mp4
 
 ## Model Evaluation
 Used **KFold** for model evaluation from 8 different classification models\
-Used **LogLoss**, **Accuracy** under **ROC curve** and **Confusion Matrix** as scoring parameters\
+Used **LogLoss**, **Accuracy** under **ROC curve** and **Confusion Matrix** as scoring parameters
 
-Selected **Random Forest Classifier** as the most suitable model\
+Selected **Random Forest Classifier** as the most suitable model
 
 ![17](https://github.com/subhashishansda4/Afame-Technologies/blob/main/data/metrics_df_.png)
 
 ## Predictions
-![18]('https://github.com/subhashishansda4/Afame-Technologies/blob/main/plots/Predicted Heatmaps.png')
+![18]('https://github.com/subhashishansda4/Afame-Technologies/blob/main/plots/Predicted-Heatmaps.png')
 
 
 
