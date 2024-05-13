@@ -67,7 +67,7 @@ NumOfProducts\
 ![15](https://github.com/subhashishansda4/Afame-Technologies/blob/main/data/final_df_.png)
 
 ### t-SNE
-https://github.com/subhashishansda4/Afame-Technologies/blob/main/plots/t-SNE.mp4
+https://github.com/subhashishansda4/Afame-Technologies/assets/84849423/792757c6-2c67-4dc3-ab70-3e9b4c590979
 
 ## Model Evaluation
 Used **KFold** for model evaluation from 8 different classification models\
